@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
 
 public enum RequirementType
 {
@@ -19,6 +21,9 @@ public class Plant
     public Sprite image;
 
     public Requirement[] requirements;
+
+    public int maxLvl;
+    public int xpPerLvl;
 }
 
 public class PlacedPlant
@@ -39,4 +44,28 @@ public class PlacedPlant
     public GameObject obj;
     public Vector3 fixedPos;
     public Vector3 movePos;
+    public int currentLvl;
+    public int currentXP;
+}
+
+[System.Serializable]
+public class Day
+{
+    public Day()
+    {
+        dateTime = DateTime.Today;
+    }
+
+    public DateTime dateTime;
+    public List<Pomodoro> pomodoros = new();
+}
+
+[System.Serializable]
+public class Pomodoro
+{
+    public bool wasCompleted;
+    public bool wasInterrupted;
+
+    public List<string> completedTasks;
+    public List<string> incompleteTasks;
 }

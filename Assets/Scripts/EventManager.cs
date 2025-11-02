@@ -5,7 +5,8 @@ using UnityEngine.Events;
 public enum GameEvent
 {
     OnStartTimer,
-    OnEndTimer
+    OnEndTimer,
+    OnPomodoroInterrupted,
 }
 
 public static class EventManager
